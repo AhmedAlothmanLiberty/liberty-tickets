@@ -1,5 +1,5 @@
 {
-  "name": "liberty/tickets",
+  "name": "liberty/ao-tickets",
   "description": "Internal ticketing & change request system for DebtPlete",
   "type": "library",
   "license": "proprietary",
