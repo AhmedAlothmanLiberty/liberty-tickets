@@ -3,9 +3,17 @@
   "description": "Internal ticketing & change request system for DebtPlete",
   "type": "library",
   "license": "proprietary",
+  "scripts": {
+    "test": "vendor/bin/phpunit --testdox"
+  },
   "autoload": {
     "psr-4": {
       "Liberty\\Tickets\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Liberty\\Tickets\\Tests\\": "tests/"
     }
   },
   "extra": {
@@ -18,5 +26,9 @@
   "require": {
     "php": "^8.2",
     "illuminate/support": "^11.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^9.0",
+    "phpunit/phpunit": "^10.0"
   }
 }

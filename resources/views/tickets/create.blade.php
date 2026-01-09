@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('tickets::layouts.app')
 @section('content')
 <div class="container" style="max-width: 900px;">
     <div style="margin-bottom: 16px;">
