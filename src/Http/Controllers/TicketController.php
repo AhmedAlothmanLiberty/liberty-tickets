@@ -2,6 +2,7 @@
 
 namespace Liberty\Tickets\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Routing\Controller;
 use Liberty\Tickets\Http\Requests\AssignTicketRequest;
 use Liberty\Tickets\Http\Requests\ChangePriorityRequest;
@@ -13,6 +14,8 @@ use Liberty\Tickets\Services\TicketService;
 
 class TicketController extends Controller
 {
+    use AuthorizesRequests;
+
     public function __construct(private TicketService $service) {}
 
     public function index()
