@@ -1,5 +1,9 @@
 @extends('tickets::layouts.app')
 @section('content')
+@php
+    use Liberty\Tickets\Support\TicketUser;
+    $cap = TicketUser::priorityCap(auth()->user());
+@endphp
 <div class="container" style="max-width: 900px;">
     <div style="margin-bottom: 16px;">
         <h1 style="margin:0;">New Ticket</h1>
@@ -29,13 +33,13 @@
                 <label style="display:block; font-weight:600; margin-bottom:6px;">
                     Priority
                     <span style="opacity:.7; font-weight:400;">
-                        (Your max: {{ auth()->user()->ticketPriorityCap() }})
+                        (Your max: {{ $cap }})
                     </span>
                 </label>
                 <input type="number"
                        name="priority"
                        min="1"
-                       max="{{ auth()->user()->ticketPriorityCap() }}"
+                       max="{{ $cap }}"
                        value="{{ old('priority', 1) }}"
                        class="form-control"
                        style="width:220px; padding:10px;">

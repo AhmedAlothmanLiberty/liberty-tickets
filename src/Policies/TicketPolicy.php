@@ -3,6 +3,7 @@
 namespace Liberty\Tickets\Policies;
 
 use Liberty\Tickets\Models\Ticket;
+use Liberty\Tickets\Support\TicketUser;
 
 class TicketPolicy
 {
@@ -44,7 +45,7 @@ class TicketPolicy
 
     public function changePriority($user, Ticket $ticket, int $newPriority): bool
     {
-        $cap = (int) $user->ticketPriorityCap();
+        $cap = TicketUser::priorityCap($user);
         if ($newPriority < 1 || $newPriority > $cap) return false;
 
         // Only Level 2/3 can change priority

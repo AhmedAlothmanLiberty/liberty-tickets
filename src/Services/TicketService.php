@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Liberty\Tickets\Models\Ticket;
 use Liberty\Tickets\Models\TicketComment;
+use Liberty\Tickets\Support\TicketUser;
 
 class TicketService
 {
@@ -16,7 +17,7 @@ class TicketService
     public function create(array $data, $user): Ticket
     {
         $level = $user->ticketLevel();
-        $priorityCap = $user->ticketPriorityCap();
+        $priorityCap = TicketUser::priorityCap($user);
 
         if ($data['priority'] > $priorityCap) {
             throw new AuthorizationException('Priority exceeds your allowed level.');

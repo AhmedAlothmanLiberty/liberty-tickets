@@ -18,6 +18,17 @@ return [
         'super_admin' => 3,
     ],
 
+    /*
+   |--------------------------------------------------------------------------
+    | Ticket Level Resolver
+    |--------------------------------------------------------------------------
+    | Return an integer level for the current user.
+    | Default: tries user->ticketLevel(), otherwise returns 1.
+    */
+
+    'level_resolver' => fn($user): int => method_exists($user, 'ticketLevel')
+        ? (int) $user->ticketLevel()
+        : 1,
     // Priority caps per level
     'priority_caps' => [
         1 => 5,
@@ -30,7 +41,7 @@ return [
     'visibility' => [
         'max_created_level_visible' => true,
     ],
-    
+
     'notifications' => [
         'enabled' => env('TICKETS_NOTIFICATIONS_ENABLED', false),
     ],
