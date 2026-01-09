@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('tickets::layouts.app')
 
 @section('content')
 <div class="container" style="max-width: 1100px;">
