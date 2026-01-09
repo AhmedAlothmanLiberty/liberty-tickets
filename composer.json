@@ -1,0 +1,22 @@
+{
+  "name": "liberty/tickets",
+  "description": "Internal ticketing & change request system for DebtPlete",
+  "type": "library",
+  "license": "proprietary",
+  "autoload": {
+    "psr-4": {
+      "Liberty\\Tickets\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Liberty\\Tickets\\Providers\\TicketsServiceProvider"
+      ]
+    }
+  },
+  "require": {
+    "php": "^8.2",
+    "illuminate/support": "^11.0"
+  }
+}
